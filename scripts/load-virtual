@@ -1,0 +1,5 @@
+pactl load-module module-null-sink sink_name=Virtual1 sink_properties=device.description="Audio and Mic"
+pactl load-module module-null-sink sink_name=Virtual2 sink_properties=device.description="Mic Only"
+pactl load-module module-loopback sink=Virtual1
+pactl load-module module-loopback sink=Virtual1
+pactl load-module module-loopback sink=Virtual2

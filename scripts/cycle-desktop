@@ -1,0 +1,2 @@
+#!/bin/sh
+xsetwacom set "Wacom Intuos BT S Pen stylus" MapToOutput next
