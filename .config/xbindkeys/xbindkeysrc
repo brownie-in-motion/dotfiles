@@ -1,0 +1,5 @@
+"maim -s | xclip -selection clipboard -t image/png"
+    c:107
+
+"maim -s /tmp/screenshot.png; imgur /tmp/screenshot.png | xclip -selection clipboard"
+    control + c:107
