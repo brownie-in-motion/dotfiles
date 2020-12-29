@@ -1,5 +1,24 @@
+# screenshots
 "maim -s | xclip -selection clipboard -t image/png"
     c:107
 
 "maim -s /tmp/screenshot.png; imgur /tmp/screenshot.png | xclip -selection clipboard"
     control + c:107
+
+# volume
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
+    XF86AudioRaiseVolume
+
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    XF86AudioLowerVolume
+
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    XF86AudioMute
+
+# brightness--use multimedia because brightness doesn't work
+
+"brightness - eDP-1 0.1; brightness - eDP-1-1 0.1"
+    XF86AudioPrev
+
+"brightness + eDP-1 0.1; brightness + eDP-1-1 0.1"
+    XF86AudioNext
