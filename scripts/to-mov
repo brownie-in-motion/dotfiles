@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+ffmpeg -y -i "$1" -c:v dnxhd -profile:v dnxhd -vf "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080,fps=30000/1001,format=yuv422p" -b:v 185M -c:a pcm_s16le "$1.mov"

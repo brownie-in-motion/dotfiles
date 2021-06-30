@@ -1,0 +1,4 @@
+#!/bin/sh
+maim -su /tmp/screenshot.png
+upload-file /tmp/screenshot.png png | xclip -selection clipboard
+notify-send 'Screenshot Uploaded'

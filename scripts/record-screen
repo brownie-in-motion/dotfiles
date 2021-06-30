@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# this script largely stolen from internet
+
+if pidof ffmpeg
+  then
+    killall ffmpeg
+    notify-send 'Stopped Recording!'
+  else 
+    slop=$(slop -f "%x %y %w %h")
+    read -r X Y W H < <(echo $slop)
+    time=$(date +%F%T)
+
+    # if slop does not give width, don't record
+    width=${#W}
+
+    if [ $width -gt 0 ];
+     then
+      # records without audio input
+      # -f alsa -i pulse \ (add this if audio wanted)
+      rm /tmp/recording.mp4 > /dev/null
+      ffmpeg -f x11grab -s "$W"x"$H" -framerate 30  -thread_queue_size 512  -i $DISPLAY.0+$X,$Y \
+       -vcodec libx264 -qp 18 -preset ultrafast \
+       /tmp/recording.mp4
+      upload-file /tmp/recording.mp4 mp4 | xclip -selection clipboard
+      notify-send 'Recording Uploaded.'
+    fi
+fi

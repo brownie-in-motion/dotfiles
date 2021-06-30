@@ -1,0 +1,16 @@
+#!/bin/sh
+
+session="workspace"
+
+# new window with nvim
+tmux new-session -d -s $session 'exec nvim'
+tmux send-keys -l ':NERDTree'
+tmux send-keys Enter
+
+# new pane for zsh
+tmux select-window -t $session:0
+tmux split-window -h -l 10
+tmux resize-pane -y 5
+
+# attach
+tmux attach-session -t $session:0

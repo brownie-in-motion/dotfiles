@@ -1,0 +1,2 @@
+#!/bin/sh
+echo `sensors | grep -oP '(?<=Core \d:\s{8}\+)\d+' | sort -nr | head -n 1`°C

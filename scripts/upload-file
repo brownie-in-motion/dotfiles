@@ -1,0 +1,2 @@
+#!/bin/sh
+aws s3 cp $1 s3://brown.ee/`random-string 8`.$2 | sed -r 's/.+s3:\/\/.+\/(\w+\.\w+)/https:\/\/brown.ee\/\1/' | tr -d '[:space:]'

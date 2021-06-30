@@ -1,0 +1,9 @@
+#!/bin/sh
+device="Wacom Intuos BT S Pen stylus"
+area=`xsetwacom get "$device" Area`
+xsetwacom set "$device" ResetArea
+new_area=`xsetwacom get "$device" Area`
+if [ "$area" == "$new_area" ]
+then
+    xsetwacom set "$device" Area 0 0 7600 4750
+fi

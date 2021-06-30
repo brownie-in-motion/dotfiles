@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+HOME=$HOME/projects/john
+exec /usr/bin/john "$@"
