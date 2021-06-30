@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+HOME=$HOME/media/games
+exec /usr/bin/steam "$@"

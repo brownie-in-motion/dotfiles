@@ -1,7 +1,7 @@
 #!/bin/sh
 
-userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
+userresources=$XDG_CONFIG_HOME/x11/Xresources
+usermodmap=$XDG_CONFIG_HOME/x11/Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
@@ -49,6 +49,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+prime-offload
+
 xbindkeys -f /home/daniel/.config/xbindkeys/xbindkeysrc
+
+udiskie &
 
 exec i3

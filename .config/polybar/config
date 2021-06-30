@@ -30,13 +30,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Operator Mono Lig Book:size=24;3
+font-0 = Operator Mono Medium:size=24;3
 font-1 = Unifont:fontformat=truetype:size=10:heavy;2
 font-2 = FontAwesome:size=9
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = xwindow spotify pulseaudio cpu wlan battery date
+modules-right = xwindow spotify pulseaudio cpu cputemp wlan battery power date
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -78,13 +78,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Operator Mono Lig Book:size=24;3
+font-0 = Operator Mono Medium:size=24;3
 font-1 = Unifont:fontformat=truetype:size=10:heavy;2
 font-2 = FontAwesome:size=9
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = xwindow spotify pulseaudio cpu wlan battery date
+modules-right = xwindow spotify pulseaudio cpu cputemp wlan battery power date
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -129,13 +129,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Operator Mono Lig Book:size=24;3
+font-0 = Operator Mono Medium:size=24;3
 font-1 = Unifont:fontformat=truetype:size=10:heavy;2
 font-2 = FontAwesome:size=9
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = xwindow pulseaudio cpu wlan battery date
+modules-right = xwindow spotify pulseaudio cpu cputemp wlan battery power date
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -154,6 +154,19 @@ cursor-scroll = ns-resize
 monitor = eDP-1
 
 separator = "|"
+
+[module/power]
+type = custom/script
+exec = power
+format-prefix = " "
+interval = 2
+
+[module/cputemp]
+type = custom/script
+exec = cputemp
+format-prefix = " "
+interval = 2
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
@@ -268,7 +281,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlan0
+interface = wlo1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -326,7 +339,7 @@ format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = muted
 
-bar-volume-width = 40
+bar-volume-width = 50
 bar-volume-foreground-0 = ${colors.foreground}
 bar-volume-foreground-1 = ${colors.foreground}
 bar-volume-foreground-2 = ${colors.foreground}
@@ -342,6 +355,7 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
 [module/alsa]
 type = internal/alsa
 
@@ -374,7 +388,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 95
+full-at = 100
 
 format-charging = <animation-charging> <label-charging>
 
@@ -402,7 +416,7 @@ animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 1
+thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>

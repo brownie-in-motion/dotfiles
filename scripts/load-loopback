@@ -1,2 +1,2 @@
  #!/bin/sh
- modprobe v4l2loopback exclusive_caps=1 video_nr=1 card_label="OBS Stream"
+ modprobe v4l2loopback exclusive_caps=1 video_nr=2,3 card_label="Video 1","OBS Stream"

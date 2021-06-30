@@ -1,9 +1,12 @@
 # screenshots
-"maim -s | xclip -selection clipboard -t image/png"
+"maim -su | xclip -selection clipboard -t image/png"
     c:107
 
-"maim -s /tmp/screenshot.png; imgur /tmp/screenshot.png | xclip -selection clipboard"
+"upload-screenshot"
     control + c:107
+
+"DISPLAY=:0 record-screen"
+    control + shift + c:107
 
 # volume
 "pactl set-sink-volume @DEFAULT_SINK@ +5%"

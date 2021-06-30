@@ -155,6 +155,8 @@ function! s:cocActionsOpenFromSelected(type) abort
   execute 'CocCommand actions.open ' . a:type
 endfunction
 
+nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>
+
 vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
 
