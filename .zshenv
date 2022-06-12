@@ -6,9 +6,6 @@ export XDG_CACHE_HOME="$HOME"/.cache
 # zsh history file somewhere else please
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 
-# tensorflow
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH":/usr/local/cuda/extras/CUPTI/lib64
-
 # dotfiles
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
@@ -34,6 +31,9 @@ export MATHEMATICA_USERBASE="$XDG_CONFIG_HOME"/mathematica
 export MAXIMA_USERDIR="$XDG_CONFIG_HOME"/maxima
 export DOT_SAGE="$XDG_CONFIG_HOME"/sage
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
+export CABAL_DIR="$XDG_CACHE_HOME"/cabal
+export STACK_ROOT="$XDG_DATA_HOME"/stack
 
 
 # theme
@@ -45,6 +45,8 @@ export QT_SCALE_FACTOR=2
 export QT_FONT_DPI=96
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
+export VMARGS=-Dsun.java2d.uiScale=2
+export ANKI_NOHIGHDPI=1
 
 export ZDOTDIR=$HOME/.config/zsh
 export ZPLUG_HOME=$HOME/projects/zplug
@@ -52,3 +54,9 @@ export ZPLUG_BIN=$HOME/projects/zplug/bin
 export ZPLUG_REPOS=$HOME/projects/zplug/repos
 export ZPLUG_LOADFILE=$HOME/projects/zplug/packages.zsh
 export ZPLUG_CACHE_DIR=$HOME/projects/zplug/cache
+export ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+
+export STARDICT_DATA_DIR=/home/daniel/media/books/dictionary
+
+# gradle uhhhh
+export GRADLE_OPTS="-Djavafx.verbose=true -Djavafx.debug=true -Dprism.verbose=true -Dprism.debug=true -Dquantum.verbose=true -Dquantum.debug=true -Dquantum.pulsedebug=true -Dprism.order=sw"

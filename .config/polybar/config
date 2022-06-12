@@ -1,7 +1,7 @@
 [colors]
-background = #
+background = #875fff
 background-alt = #444
-foreground = #dfdfdf
+foreground = #000
 foreground-alt = #555
 primary = #ddd
 secondary = #ddd
@@ -207,22 +207,22 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
+label-focused = [%index%]
+; label-focused-background = ${colors.background-alt}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = " %index% "
 label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
-label-visible-background = ${self.label-focused-background}
+label-visible = "(%index%)"
+; label-visible-background = ${self.label-focused-background}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = ${colors.alert}
+label-urgent = " %index%!"
+; label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
 ; Separator in between workspaces
@@ -318,9 +318,9 @@ format-disconnected =
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 0.5
 
-date = " %Y-%m-%d"
+date = " %y-%m-%d"
 
 time = %H:%M:%S
 
@@ -390,27 +390,30 @@ battery = BAT0
 adapter = ADP1
 full-at = 100
 
-format-charging = <animation-charging> <label-charging>
+; format-charging = <animation-charging> <label-charging>
+format-charging = + <label-charging>
 
-format-discharging = <animation-discharging> <label-discharging>
+; format-discharging = <animation-discharging> <label-discharging>
+format-discharging = - <label-discharging>
 
-format-full-prefix = "█ "
-format-full-prefix-foreground = #00ee00
+; format-full-prefix = " █ "
+format-full-prefix = " "
+; format-full-prefix-foreground = #00ee00
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = "▁ "
-animation-charging-1 = "▄ "
-animation-charging-2 = "█ "
-animation-charging-foreground = #eeee00 
+animation-charging-0 = " ▁ "
+animation-charging-1 = " ▄ "
+animation-charging-2 = " █ "
+animation-charging-foreground = #eeee00
 animation-charging-framerate = 750
 
-animation-discharging-0 = "█ "
-animation-discharging-1 = "▄ "
-animation-discharging-2 = "▁ "
+animation-discharging-0 = " █ "
+animation-discharging-1 = " ▄ "
+animation-discharging-2 = " ▁ "
 animation-discharging-foreground = #ee0000
 animation-discharging-framerate = 750
 

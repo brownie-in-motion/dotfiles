@@ -13,14 +13,14 @@ font pango:monospace 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- lock --nofork
-bindsym $mod+l exec loginctl lock-session
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- lock --nofork
+# bindsym $mod+l exec loginctl lock-session
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty 
+bindsym $mod+Return exec kitty -1
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -233,7 +233,8 @@ font pango:DejaVu Sans Mono 8
 font pango:Operator Mono Lig Book Light 9
 
 # Gaps
-gaps inner 20
+smart_gaps on
+gaps inner 0
 
 # Popup fixes
 # floating_maximum_size 1400 x 1350
@@ -246,6 +247,7 @@ exec --no-startup-id picom -b
 
 # Set background
 # exec_always --no-startup-id feh --bg-scale ~/media/gimp/dvorak.png
+# exec_always --no-startup-id feh --no-fehbg --bg-scale ~/media/gimp/dvorak.png
 exec_always --no-startup-id feh --no-fehbg --bg-scale ~/media/images/black.png
 
 # start polybar
@@ -267,13 +269,13 @@ exec dunst
 # exec xbindkeys
 
 # assign workspaces to monitors
-workspace 1 output HDMI-0 eDP-1 eDP-1-1
-workspace 2 output HDMI-0 eDP-1 eDP-1-1
-workspace 3 output HDMI-0 eDP-1 eDP-1-1
-workspace 4 output HDMI-0 eDP-1 eDP-1-1
-workspace 5 output HDMI-0 eDP-1 eDP-1-1
-workspace 6 output HDMI-0 eDP-1 eDP-1-1
-workspace 7 output HDMI-0 eDP-1 eDP-1-1
-workspace 8 output HDMI-0 eDP-1 eDP-1-1
+workspace 1 output HDMI-0 HDMI-1-0 eDP-1 eDP-1-1
+workspace 2 output HDMI-0 HDMI-1-0 eDP-1 eDP-1-1
+workspace 3 output HDMI-0 HDMI-1-0 eDP-1 eDP-1-1
+workspace 4 output HDMI-0 HDMI-1-0 eDP-1 eDP-1-1
+workspace 5 output HDMI-0 HDMI-1-0 eDP-1 eDP-1-1
+workspace 6 output HDMI-0 HDMI-1-0 eDP-1 eDP-1-1
+workspace 7 output HDMI-0 HDMI-1-0 eDP-1 eDP-1-1
+workspace 8 output HDMI-0 HDMI-1-0 eDP-1 eDP-1-1
 workspace 9 output eDP-1 eDP-1-1
-workspace 9 output eDP-1 eDP-1-1
+workspace 0 output eDP-1 eDP-1-1

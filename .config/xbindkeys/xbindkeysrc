@@ -20,8 +20,8 @@
 
 # brightness--use multimedia because brightness doesn't work
 
-"brightness - eDP-1 0.1; brightness - eDP-1-1 0.1"
+"brightness - 100"
     XF86AudioPrev
 
-"brightness + eDP-1 0.1; brightness + eDP-1-1 0.1"
+"brightness + 100"
     XF86AudioNext
