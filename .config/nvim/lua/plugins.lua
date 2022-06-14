@@ -8,7 +8,8 @@ return require 'packer'.startup(function()
         'williamboman/nvim-lsp-installer',
         'neovim/nvim-lspconfig',
         {
-            'ms-jpq/coq_nvim', run = 'python3 -m coq deps'
+            'ms-jpq/coq_nvim',
+            run = 'python3 -m coq deps',
         },
         'ms-jpq/coq.artifacts',
         'ms-jpq/coq.thirdparty',

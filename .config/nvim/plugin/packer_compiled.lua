@@ -105,7 +105,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["onedark.vim"] = {
-    config = { "\27LJ\2\nê\3\0\0\4\0\v\0\0236\0\0\0009\0\1\0009\0\2\0'\2\3\0005\3\4\0B\0\3\0016\0\0\0009\0\1\0009\0\5\0'\2\6\0005\3\a\0B\0\3\0016\0\0\0009\0\1\0009\0\5\0'\2\6\0005\3\b\0B\0\3\0016\0\0\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0\24colorscheme onedark\bcmd\1\0\3\fpattern\6*\ngroup\rcolorset\fcommandrcall onedark#set_highlight(\"StatusLine\", { \"bg\": { \"gui\": \"#262626\", \"cterm\": \"NONE\", \"cterm16\": \"NONE\" } }) \1\0\3\fpattern\6*\ngroup\rcolorset\fcommandncall onedark#set_highlight(\"Normal\", { \"fg\": { \"gui\": \"#ABB2BF\", \"cterm\": \"NONE\", \"cterm16\": \"NONE\" } }) \16ColorScheme\24nvim_create_autocmd\1\0\1\nclear\2\rcolorset\24nvim_create_augroup\bapi\bvim\0" },
+    config = { "\27LJ\2\nê\3\0\0\4\0\v\0\0236\0\0\0009\0\1\0009\0\2\0'\2\3\0005\3\4\0B\0\3\0016\0\0\0009\0\1\0009\0\5\0'\2\6\0005\3\a\0B\0\3\0016\0\0\0009\0\1\0009\0\5\0'\2\6\0005\3\b\0B\0\3\0016\0\0\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0\24colorscheme onedark\bcmd\1\0\3\ngroup\rcolorset\fcommandrcall onedark#set_highlight(\"StatusLine\", { \"bg\": { \"gui\": \"#262626\", \"cterm\": \"NONE\", \"cterm16\": \"NONE\" } }) \fpattern\6*\1\0\3\ngroup\rcolorset\fcommandncall onedark#set_highlight(\"Normal\", { \"fg\": { \"gui\": \"#ABB2BF\", \"cterm\": \"NONE\", \"cterm16\": \"NONE\" } }) \fpattern\6*\16ColorScheme\24nvim_create_autocmd\1\0\1\nclear\2\rcolorset\24nvim_create_augroup\bapi\bvim\0" },
     loaded = true,
     path = "/home/daniel/.local/share/nvim/site/pack/packer/start/onedark.vim",
     url = "https://github.com/joshdick/onedark.vim"
@@ -135,7 +135,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: onedark.vim
 time([[Config for onedark.vim]], true)
-try_loadstring("\27LJ\2\nê\3\0\0\4\0\v\0\0236\0\0\0009\0\1\0009\0\2\0'\2\3\0005\3\4\0B\0\3\0016\0\0\0009\0\1\0009\0\5\0'\2\6\0005\3\a\0B\0\3\0016\0\0\0009\0\1\0009\0\5\0'\2\6\0005\3\b\0B\0\3\0016\0\0\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0\24colorscheme onedark\bcmd\1\0\3\fpattern\6*\ngroup\rcolorset\fcommandrcall onedark#set_highlight(\"StatusLine\", { \"bg\": { \"gui\": \"#262626\", \"cterm\": \"NONE\", \"cterm16\": \"NONE\" } }) \1\0\3\fpattern\6*\ngroup\rcolorset\fcommandncall onedark#set_highlight(\"Normal\", { \"fg\": { \"gui\": \"#ABB2BF\", \"cterm\": \"NONE\", \"cterm16\": \"NONE\" } }) \16ColorScheme\24nvim_create_autocmd\1\0\1\nclear\2\rcolorset\24nvim_create_augroup\bapi\bvim\0", "config", "onedark.vim")
+try_loadstring("\27LJ\2\nê\3\0\0\4\0\v\0\0236\0\0\0009\0\1\0009\0\2\0'\2\3\0005\3\4\0B\0\3\0016\0\0\0009\0\1\0009\0\5\0'\2\6\0005\3\a\0B\0\3\0016\0\0\0009\0\1\0009\0\5\0'\2\6\0005\3\b\0B\0\3\0016\0\0\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0\24colorscheme onedark\bcmd\1\0\3\ngroup\rcolorset\fcommandrcall onedark#set_highlight(\"StatusLine\", { \"bg\": { \"gui\": \"#262626\", \"cterm\": \"NONE\", \"cterm16\": \"NONE\" } }) \fpattern\6*\1\0\3\ngroup\rcolorset\fcommandncall onedark#set_highlight(\"Normal\", { \"fg\": { \"gui\": \"#ABB2BF\", \"cterm\": \"NONE\", \"cterm16\": \"NONE\" } }) \fpattern\6*\16ColorScheme\24nvim_create_autocmd\1\0\1\nclear\2\rcolorset\24nvim_create_augroup\bapi\bvim\0", "config", "onedark.vim")
 time([[Config for onedark.vim]], false)
 if should_profile then save_profiles() end
 

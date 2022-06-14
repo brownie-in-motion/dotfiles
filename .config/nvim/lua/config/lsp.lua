@@ -1,14 +1,37 @@
 -- install everything used
-require("nvim-lsp-installer").setup({
+require('nvim-lsp-installer').setup({
     automatic_installation = true
 })
 
 local lspconfig = require 'lspconfig'
 local util = require 'lspconfig/util'
 
--- start coq immediately with custom keymaps
 vim.g.coq_settings = {
     auto_start = 'shut-up',
+    clients = {
+        tree_sitter = { path_sep = ' v' },
+        tags = { parent_scope = ' v', path_sep = ' > ' },
+    },
+    display = {
+        ghost_text = { enabled = false, },
+        icons = { mode = 'none', },
+        preview = {
+            border = {
+                { '', 'NormalFloat' },
+                { '', 'NormalFloat' },
+                { '', 'NormalFloat' },
+                { ' ', 'NormalFloat' },
+                { '', 'NormalFloat' },
+                { '', 'NormalFloat' },
+                { '', 'NormalFloat' },
+                { ' ', 'NormalFloat' },
+            },
+        },
+        pum = {
+            kind_context = { ' <', '>' },
+            source_context = { '[', ']' },
+        },
+    },
     keymap = {
         manual_complete = '<c-a>',
         jump_to_mark = '<c-l>',
@@ -33,8 +56,9 @@ local function on_attach(client, buf)
         pattern = '<buffer>',
         command = '\z
             lua vim.diagnostic.open_float({ \z
+                focusable = false, \z
+                header = false, \z
                 scope = "cursor", \z
-                focusable = false \z
             }) \z
         ',
     })
