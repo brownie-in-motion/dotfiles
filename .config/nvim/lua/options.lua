@@ -27,8 +27,10 @@ local options = {
     -- less delay
     updatetime = 100,
 
-    -- colors
+    -- appearance
     termguicolors = true,
+    showmode = false,
+    colorcolumn = "80",
 }
 
 for k, v in pairs(options) do

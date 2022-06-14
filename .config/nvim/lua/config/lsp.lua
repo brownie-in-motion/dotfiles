@@ -31,9 +31,36 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = publish
 local function on_attach(client, buf)
     vim.api.nvim_create_autocmd('CursorHold', {
         pattern = '<buffer>',
-        command = 'lua vim.diagnostic.open_float({ scope = "cursor" })',
+        command = '\z
+            lua vim.diagnostic.open_float({ \z
+                scope = "cursor", \z
+                focusable = false \z
+            }) \z
+        ',
     })
+
+      local o = { noremap = true, silent = true, buffer = buf }
+      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, o)
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, o)
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, o)
+      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, o)
+      vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, o)
+      vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, o)
+      vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, o)
+      vim.keymap.set('n', '<space>wl', function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+      end, o)
+      vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, o)
+      vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, o)
+      vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, o)
+      vim.keymap.set('n', 'gr', vim.lsp.buf.references, o)
+      vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, o)
 end
+
+-- keybinds before lsp load
+local o = { noremap = true, silent = true }
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, o)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, o)
 
 -- language server configs
 lspconfig.eslint.setup(coq.lsp_ensure_capabilities {

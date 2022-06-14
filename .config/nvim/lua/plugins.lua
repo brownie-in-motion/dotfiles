@@ -7,7 +7,9 @@ return require 'packer'.startup(function()
     use {
         'williamboman/nvim-lsp-installer',
         'neovim/nvim-lspconfig',
-        { 'ms-jpq/coq_nvim', run = 'python3 -m coq deps' },
+        {
+            'ms-jpq/coq_nvim', run = 'python3 -m coq deps'
+        },
         'ms-jpq/coq.artifacts',
         'ms-jpq/coq.thirdparty',
     }
@@ -32,7 +34,7 @@ return require 'packer'.startup(function()
                         "cterm16": "NONE" \z
                     } \z
                 }) \z
-            '
+            ',
         })
 
         -- have status line be less blue
@@ -47,7 +49,7 @@ return require 'packer'.startup(function()
                         "cterm16": "NONE" \z
                     } \z
                 }) \z
-            '
+            ',
         })
 
         -- actually use the color scheme
