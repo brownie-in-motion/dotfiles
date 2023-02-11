@@ -22,7 +22,6 @@ local options = {
 
     -- nicer searching
     incsearch = true,
-    ignorecase = true,
 
     -- less delay
     updatetime = 100,
@@ -30,9 +29,18 @@ local options = {
     -- appearance
     termguicolors = true,
     showmode = false,
-    colorcolumn = "80",
+    colorcolumn = '80',
+
+    -- nope
+    mouse = '',
 }
 
-for k, v in pairs(options) do
-    vim.opt[k] = v
+function set_options(options)
+    for k, v in pairs(options) do
+        vim.opt[k] = v
+    end
 end
+
+vim.g.mapleader = ' '
+
+set_options(options)

@@ -3,25 +3,52 @@ return require 'packer'.startup(function()
     use 'wbthomason/packer.nvim'
 
     -- writing cod is too hard
-    use 'github/copilot.vim'
+    use { 'github/copilot.vim', disable = false }
     use {
-        'williamboman/nvim-lsp-installer',
-        'neovim/nvim-lspconfig',
+        { 'williamboman/nvim-lsp-installer', disable = false },
+        { 'neovim/nvim-lspconfig', disable = false },
         {
             'ms-jpq/coq_nvim',
+            disable = false,
             run = 'python3 -m coq deps',
         },
-        'ms-jpq/coq.artifacts',
-        'ms-jpq/coq.thirdparty',
+        { 'ms-jpq/coq.artifacts', disable = false },
+        { 'ms-jpq/coq.thirdparty', disable = false },
     }
+    use {
+        { 'nvim-lua/plenary.nvim', disable = false },
+        { 'jose-elias-alvarez/null-ls.nvim', disable = false },
+    }
+    use { 'lervag/vimtex', disable = false, config = function()
+        vim.g.vimtex_view_method = 'zathura'
+        vim.g.vimtex_quickfix_ignore_filters = {
+            'Writing or overwriting file',
+        }
+        vim.g.vimtex_compiler_latexmk = {
+            executable = 'latexmk',
+            options = {
+                '-verbose',
+                '-file-line-error',
+                '-synctex=1',
+                '-interaction=nonstopmode',
+                '-shell-escape',
+            }
+        }
+    end }
+
+    -- files
+    use { 'kyazdani42/nvim-tree.lua', disable = false }
 
     -- tpope strong
-    use 'tpope/vim-surround'
-    use 'tpope/vim-fugitive'
-    use 'tpope/vim-repeat'
+    use { 'tpope/vim-surround', disable = false, config = function()
+        vim.g.surround_36 = '\\( \r \\)'
+        vim.g.surround_32 = ' \r '
+    end }
+    use { 'tpope/vim-fugitive', disable = false }
+    use { 'tpope/vim-repeat', disable = false }
 
     -- colors
-    use { 'joshdick/onedark.vim', config = function()
+    use { 'joshdick/onedark.vim', disable = false, config = function()
         -- make background match terminal
         vim.api.nvim_create_augroup('colorset', { clear = true })
         vim.api.nvim_create_autocmd('ColorScheme', {
@@ -57,5 +84,33 @@ return require 'packer'.startup(function()
         vim.cmd 'colorscheme onedark'
     end }
 
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        disable = false,
+        run = ':TSUpdate'
+    }
+    use { 'rvmelkonian/move.vim', disable = false }
+
+    use { 'iamcco/markdown-preview.nvim', disable = false }
+
+    -- need this for class
+    use {
+        'brownie-in-motion/jupyter-ascending.vim',
+        disable = false,
+        config = function()
+            local o = { silent = true }
+            vim.api.nvim_set_keymap(
+                'n',
+                '<space>x',
+                '<Plug>JupyterExecute',
+                o
+            )
+            vim.api.nvim_set_keymap(
+                'n',
+                '<space>X',
+                '<Plug>JupyterExecuteAll',
+                o
+            )
+        end
+    }
 end)
