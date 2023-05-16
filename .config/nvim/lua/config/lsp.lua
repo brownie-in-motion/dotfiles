@@ -32,7 +32,13 @@ require('null-ls').setup({
         -- }),
     },
 })
-vim.keymap.set('n', '<space>f', vim.lsp.buf.format, o)
+
+-- slow format
+function format()
+    vim.lsp.buf.format({ timeout_ms = 2000 })
+end
+
+vim.keymap.set('n', '<space>f', format, o)
 
 local lspconfig = require 'lspconfig'
 local util = require 'lspconfig/util'
@@ -180,6 +186,13 @@ lspconfig.hls.setup(coq.lsp_ensure_capabilities {
 
 lspconfig.rust_analyzer.setup(coq.lsp_ensure_capabilities {
     on_attach = on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            procMacro = {
+                enable = true,
+            },
+        },
+    },
 })
 
 lspconfig.solidity_ls.setup(coq.lsp_ensure_capabilities {
